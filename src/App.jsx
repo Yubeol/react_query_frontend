@@ -5,12 +5,14 @@ import TodoPage from './no1_pages/TodoPage'
 import EmployeePage from './no1_pages/EmployeePage'
 import SiderBar from './no2_components/layout/SiderBar'
 import HeaderBar from './no2_components/layout/HeaderBar'
-import LoginPage from './no1_pages/user/LoginPage'
-import RegisterPage from './no1_pages/user/RegisterPage'
 import styled from 'styled-components'
-// import { Provider } from 'react-redux'
-import store from './no3_store'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import ProductPage from './no1_pages/sales/ProductPage' 
+import 'ag-grid-community/styles/ag-grid.css'
+import 'ag-grid-community/styles/ag-theme-alpine.css'
+import { ModuleRegistry, AllCommunityModule } from 'ag-grid-community'
+ModuleRegistry.registerModules([AllCommunityModule])
+
 
 const queryClient = new QueryClient();
 
@@ -24,11 +26,10 @@ function App() {
               <SiderBar />
               <PageContainer>
                 <Routes>
-                  <Route path="/login" element={<LoginPage />} />
-                  <Route path="/register" element={<RegisterPage />} />
                   <Route path="/" element={<HomePage />} />
                   <Route path="/todo" element={<TodoPage />} />
                   <Route path="/employee" element={<EmployeePage />} />
+                  <Route path="/product" element={<ProductPage />} />
                 </Routes>
               </PageContainer>
             </BodyLayout>

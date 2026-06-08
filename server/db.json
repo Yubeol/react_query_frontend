@@ -72,6 +72,22 @@
       "email": "lee@example.com",
       "city": "서울",
       "id": "3gEv0erTJqg"
+    },
+    {
+      "username": "이순신",
+      "password": "1111",
+      "age": "30",
+      "email": "lee@example.com",
+      "city": "서울",
+      "id": "ziZTPZT7xyQ"
+    },
+    {
+      "username": "감강찬",
+      "password": "",
+      "age": "30",
+      "email": "",
+      "city": "",
+      "id": "GpVjhp3PMv0"
     }
   ],
   "employee": [
@@ -119,7 +135,7 @@
       "id": "jJMr9BIAoZw"
     }
   ],
-  "products": [
+  "product": [
     {
       "id": "5",
       "product_name": "스마트폰 거치대 5",

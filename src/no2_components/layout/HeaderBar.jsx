@@ -1,16 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { useNavigate } from 'react-router-dom'
 import { getCurrentUser, logout } from '../../no3_store/hooks/useUser'
+import LoginFormModal from '../user/LoginFormModal'
+import RegisterFormModal from '../user/RegisterFormModal'
 
 
 
-const HeaderBar = () => { 
-
+const HeaderBar = () => {
   const user = getCurrentUser();
-
   const navigate = useNavigate();
-
+  const [loginOpen, setLoginOpen] = useState(false);
+  const [registerOpen, setRegisterOpen] = useState(false);
   const handleLogout = () => {
     logout()
     alert("로그아웃 되었습니다.");
@@ -18,22 +19,32 @@ const HeaderBar = () => {
   }
 
   return (
-    <Header>
-      <Logo>Logo</Logo>
-      <ButtonGroup>
-        {user ?
-          <>
-            <WelcomeText>{user.username}님</WelcomeText>
-            <LogoutButton onClick={handleLogout}>로그아웃</LogoutButton>
-          </>
-          :
-          <>
-            <AuthButton onClick={() => navigate("/login")}>로그인</AuthButton>
-            <AuthButton onClick={() => navigate("/register")}>회원가입</AuthButton>
-          </>
-        }
-      </ButtonGroup>
-    </Header>
+    <>
+      <Header>
+        <Logo>Logo</Logo>
+        <ButtonGroup>
+          {user ?
+            <>
+              <WelcomeText>{user.username}님</WelcomeText>
+              <LogoutButton onClick={handleLogout}>로그아웃</LogoutButton>
+            </>
+            :
+            <>
+              <AuthButton onClick={() => setLoginOpen(true)}>로그인</AuthButton>
+              <AuthButton onClick={() => setRegisterOpen(true)}>회원가입</AuthButton>
+            </>
+          }
+        </ButtonGroup>
+      </Header>
+      <LoginFormModal
+        open={loginOpen}
+        setOpen={setLoginOpen}
+      />
+      <RegisterFormModal
+        open={registerOpen}
+        setOpen={setRegisterOpen}
+      />
+    </>
   )
 }
 

@@ -71,6 +71,7 @@ const menus = [
   { path: '/', label: '🏠 Home' },
   { path: '/todo', label: '📝 할일' },
   { path: '/employee', label: '👤 고용인 정보' },
+  { path: '/product', label: ' 상품 정보' }
 ]
 
 const SiderBar = () => {

@@ -26,13 +26,13 @@ const TodoListChild = ({ item }) => {
 
     return (
         <Tr $checked={item.checked}>
-            <Td style={{ color: '#94a3b8', fontWeight: 500 }}>#{item.id}</Td>
+            <Td style={{ color: '#00000040', fontWeight: 500 }}>#{item.id}</Td>
             <Td>
                 <SubjectCell>
                     <CheckBox onClick={handleToggle}>
                         {item.checked
-                            ? <MdCheckBox size={20} color="#7C5CFF" />
-                            : <MdCheckBoxOutlineBlank size={20} color="#cbd5e1" />
+                            ? <MdCheckBox size={18} color="#1677ff" />
+                            : <MdCheckBoxOutlineBlank size={18} color="#d9d9d9" />
                         }
                     </CheckBox>
                     {editing ? (
@@ -56,10 +56,10 @@ const TodoListChild = ({ item }) => {
                     {item.checked ? '완료' : '진행중'}
                 </Badge>
             </Td>
-            <Td style={{ color: '#64748b', fontSize: '13px' }}>{createdAt}</Td>
+            <Td style={{ color: '#00000073', fontSize: '13px' }}>{createdAt}</Td>
             <Td>
                 <DeleteBtn onClick={handleDelete}>
-                    <MdRemoveCircleOutline size={18} />
+                    <MdRemoveCircleOutline size={16} />
                 </DeleteBtn>
             </Td>
         </Tr>
@@ -69,20 +69,16 @@ const TodoListChild = ({ item }) => {
 export default TodoListChild
 
 const Tr = styled.tr`
-    background: ${({ $checked }) => $checked ? '#fafbff' : 'white'};
-    border-bottom: 1px solid #f1f5f9;
+    background: ${({ $checked }) => $checked ? '#fafafa' : 'white'};
+    border-bottom: 1px solid #f0f0f0;
     transition: background 0.15s;
-    &:hover {
-        background: #f8faff;
-    }
-    &:last-child {
-        border-bottom: none;
-    }
+    &:hover { background: #e6f4ff; }
+    &:last-child { border-bottom: none; }
 `
 const Td = styled.td`
-    padding: 14px 16px;
+    padding: 12px 16px;
     font-size: 14px;
-    color: #1e293b;
+    color: #000000d9;
     vertical-align: middle;
 `
 const SubjectCell = styled.div`
@@ -96,45 +92,40 @@ const CheckBox = styled.div`
     align-items: center;
     flex-shrink: 0;
     transition: transform 0.1s;
-    &:hover {
-        transform: scale(1.1);
-    }
+    &:hover { transform: scale(1.1); }
 `
 const SubjectText = styled.span`
     font-size: 14px;
-    color: ${({ $checked }) => $checked ? '#94a3b8' : '#1e293b'};
+    color: ${({ $checked }) => $checked ? '#00000040' : '#000000d9'};
     text-decoration: ${({ $checked }) => $checked ? 'line-through' : 'none'};
     cursor: text;
     transition: 0.2s;
-    line-height: 1.5;
 `
 const EditInput = styled.input`
     flex: 1;
-    padding: 5px 10px;
-    border: 1.5px solid #7C5CFF;
-    border-radius: 8px;
+    padding: 4px 8px;
+    border: 1px solid #1677ff;
+    border-radius: 6px;
     font-size: 14px;
     outline: none;
-    box-shadow: 0 0 0 3px rgba(124, 92, 255, 0.1);
+    box-shadow: 0 0 0 2px rgba(22, 119, 255, 0.1);
 `
 const Badge = styled.span`
     display: inline-block;
-    padding: 4px 10px;
-    border-radius: 20px;
+    padding: 2px 8px;
+    border-radius: 4px;
     font-size: 12px;
-    font-weight: 600;
-    background: ${({ $checked }) => $checked ? '#f0fdf4' : '#eff6ff'};
-    color: ${({ $checked }) => $checked ? '#16a34a' : '#2563eb'};
+    font-weight: 500;
+    background: ${({ $checked }) => $checked ? '#f6ffed' : '#e6f4ff'};
+    color: ${({ $checked }) => $checked ? '#52c41a' : '#1677ff'};
+    border: 1px solid ${({ $checked }) => $checked ? '#b7eb8f' : '#91caff'};
 `
 const DeleteBtn = styled.div`
     cursor: pointer;
-    color: #cbd5e1;
+    color: #d9d9d9;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: 0.2s;
-    &:hover {
-        color: #ef4444;
-        transform: scale(1.1);
-    }
+    &:hover { color: #ff4d4f; transform: scale(1.1); }
 `

@@ -43,10 +43,10 @@ const Th = styled.th`
     padding: 12px 16px;
     text-align: left;
     font-size: 12px;
-    color: #64748b;
+    color: #00000073;
     font-weight: 600;
-    background: #f8fafc;
-    border-bottom: 1px solid #e2e8f0;
+    background: #fafafa;
+    border-bottom: 1px solid #f0f0f0;
     text-transform: uppercase;
     letter-spacing: 0.05em;
 `

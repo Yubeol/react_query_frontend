@@ -11,6 +11,7 @@ import ProductPage from './no1_pages/sales/ProductPage'
 import 'ag-grid-community/styles/ag-grid.css'
 import 'ag-grid-community/styles/ag-theme-alpine.css'
 import { ModuleRegistry, AllCommunityModule } from 'ag-grid-community'
+import SalesPage from './no1_pages/sales/SalesPage'
 ModuleRegistry.registerModules([AllCommunityModule])
 
 
@@ -30,6 +31,7 @@ function App() {
                   <Route path="/todo" element={<TodoPage />} />
                   <Route path="/employee" element={<EmployeePage />} />
                   <Route path="/product" element={<ProductPage />} />
+                  <Route path="/sales" element={<SalesPage />} />
                 </Routes>
               </PageContainer>
             </BodyLayout>

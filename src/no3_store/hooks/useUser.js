@@ -1,11 +1,21 @@
 import {
+    useQuery,
     useQueryClient,
     useMutation
 } from "@tanstack/react-query"
 import {
+    userAllGetApi,
     userLoginApi,
     userRegisterApi
 } from "../apis/user.api"
+
+
+export const useAllGetUser = () => {
+    return useQuery({
+        queryKey: ["user"],
+        queryFn: userAllGetApi
+    })
+}
 
 
 export const useLoginUser = () => {

@@ -25,7 +25,7 @@ const HeaderBar = () => {
         <ButtonGroup>
           {user ?
             <>
-              <WelcomeText>{user.username}님</WelcomeText>
+              <WelcomeText>{user.name}님</WelcomeText>
               <LogoutButton onClick={handleLogout}>로그아웃</LogoutButton>
             </>
             :

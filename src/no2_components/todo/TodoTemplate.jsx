@@ -1,12 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
+import { MdEventNote } from 'react-icons/md'
 
 const TodoTemplate = ({ children }) => {
     return (
         <Wrapper>
             <Header>
-                <Title>📋 일정 관리</Title>
-                <Subtitle>오늘의 일정을 관리하세요</Subtitle>
+                <HeaderLeft>
+                    <PageIcon><MdEventNote size={22} /></PageIcon>
+                    <HeaderText>
+                        <Title> 일정 관리</Title>
+                        <Subtitle>오늘의 일정을 관리하세요</Subtitle>
+                    </HeaderText>
+                </HeaderLeft>
             </Header>
             <Box>{children}</Box>
         </Wrapper>
@@ -41,3 +47,19 @@ const Box = styled.div`
     overflow: hidden;
     border: 1px solid #e2e8f0;
 `
+const PageIcon = styled.div`
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: #ede9fe;
+    border-radius: 12px;
+    color: #7c3aed;
+`
+const HeaderLeft = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 14px;
+`
+const HeaderText = styled.div``

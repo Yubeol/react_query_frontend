@@ -3,6 +3,7 @@ import { useAllGetProduct, useDeleteProduct, usePostRegisterProduct, usePutUpdat
 import { AgGridReact } from 'ag-grid-react'
 import ProductModal from './ProductModal'
 import styled from 'styled-components'
+import { MdInventory } from 'react-icons/md'
 
 const ProductTable = () => {
     const [open, setOpen] = useState(false);
@@ -52,11 +53,19 @@ const ProductTable = () => {
     return (
         <>
             <TableHeader>
-                <TableTitle>상품 관리</TableTitle>
+                <HeaderLeft>
+                    <PageIcon><MdInventory size={22} /></PageIcon>
+                    <HeaderText>
+                        <TableTitle> 상품 관리</TableTitle>
+                        <SubTitle>상품을 관리하세요</SubTitle>
+                    </HeaderText>
+                </HeaderLeft>
+
                 <RegisterButton onClick={handleRegister}>+ 상품 등록</RegisterButton>
             </TableHeader>
             <GridWrapper className='ag-theme-alpine'>
                 <AgGridReact
+                    theme="legacy"
                     rowData={productList}
                     columnDefs={columnDefs}
                     pagination={true}
@@ -97,6 +106,11 @@ const TableTitle = styled.h2`
     color: #1e293b;
     margin: 0;
 `
+const SubTitle = styled.p`
+    font-size: 14px;
+    color: #94a3b8;
+    margin: 0;
+`
 const RegisterButton = styled.button`
     padding: 9px 18px;
     background: #7c6af7;
@@ -110,7 +124,7 @@ const RegisterButton = styled.button`
     &:hover { background: #6a5be0; }
 `
 const GridWrapper = styled.div`
-    height: 800px;
+    height: 700px;
     width: 100%;
 `
 const ActionGroup = styled.div`
@@ -141,3 +155,19 @@ const DeleteButton = styled.button`
     transition: 0.2s;
     &:hover { background: #f87171; color: white; }
 `
+const PageIcon = styled.div`
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: #ede9fe;
+    border-radius: 12px;
+    color: #7c3aed;
+`
+const HeaderLeft = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 14px;
+`
+const HeaderText = styled.div``

@@ -5,7 +5,8 @@ import EmployeeRegister from '../no2_components/employee/EmployeeRegister'
 import EmployeeUpdate from '../no2_components/employee/EmployeeUpdate'
 import styled from 'styled-components'
 import { MdPersonAdd, MdEdit, MdDeleteOutline, MdPeople } from 'react-icons/md'
-import { useAllGetEmployee, useDeleteEmployee 
+import {
+    useAllGetEmployee, useDeleteEmployee
 } from '../no3_store/hooks/useEmployee'
 
 const EmployeePage = () => {
@@ -47,11 +48,17 @@ const EmployeePage = () => {
                         Add Employee
                     </ActionBtn>
                     <ActionBtn
-                        $variant="update"
-                        $active={mode === 'update'}
-                        onClick={() => setMode('update')}
+                        $variant="delete"
+                        $active={mode === 'delete'}
+                        onClick={() => {
+                            if (!selectedId) {
+                                alert("삭제할 직원을 선택하세요!")
+                                return
+                            }
+                            setMode('delete')
+                        }}
                     >
-                        <MdEdit size={16} />
+                        <MdDeleteOutline size={16} />
                         Edit
                     </ActionBtn>
                     <ActionBtn
@@ -72,7 +79,7 @@ const EmployeePage = () => {
                         setSelectedId={setSelectedId} />
                 </CardSection>
                 <Divider />
-                <EmployeeTable selectedId={selectedId}/>
+                <EmployeeTable selectedId={selectedId} />
             </ContentCard>
 
             {mode === 'register' && (
